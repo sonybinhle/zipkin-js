@@ -80,7 +80,7 @@ declare namespace zipkin {
 
       map<V>(fn: (value: T) => V): IOption<V>;
       ifPresent<V>(fn: (value: T) => V): IOption<V>;
-      flatMap<V>(fn: (value: T) => V): IOption<V>;
+      flatMap<V>(fn: (value: T) => V): V | IOption<V>;
       getOrElse<V>(fnOrValue: (() => V) | V): T;
       equals(other: IOption<T>): boolean;
       toString(): string;
@@ -105,7 +105,7 @@ declare namespace zipkin {
 
       map: <V>(fn: (value: T) => V) => IOption<V>;
       ifPresent: <V>(fn: (value: T) => V) => IOption<V>;
-      flatMap: <V>(fn: (value: T) => V) => IOption<V>;
+      flatMap: <V>(fn: (value: T) => V) => V;
       getOrElse: () => T;
       equals: (other: IOption<T>) => boolean;
       toString: () => string;
